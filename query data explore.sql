@@ -51,21 +51,12 @@ SELECT
 	WHERE LOWER(b."status") = 'attrited customer'
 	GROUP BY a."Income_Category"
 	ORDER BY total_customer;
-	
-SELECT
-COUNT(*) AS total_customer
-FROM PROJECT_AKHIR.CUSTOMER_DATA_HISTORY a
-LEFT JOIN PROJECT_AKHIR.STATUS_DB b ON a."idstatus" = b."id"
-WHERE LOWER(b."status") = 'attrited customer';
 
 SELECT
-a."Income_Category",
-COUNT(a."Income_Category") AS total_customer
-FROM PROJECT_AKHIR.CUSTOMER_DATA_HISTORY a
-LEFT JOIN PROJECT_AKHIR.STATUS_DB b ON a."idstatus" = b."id"
-WHERE LOWER(b."status") = 'attrited customer'
-GROUP BY a."Income_Category"
-ORDER BY total_customer;	
-
-
-
+	a."Income_Category",
+	COUNT(a."Income_Category") AS total_customer
+	FROM PROJECT_AKHIR.CUSTOMER_DATA_HISTORY a
+	LEFT JOIN PROJECT_AKHIR.STATUS_DB b ON a."idstatus" = b."id"
+	WHERE LOWER(b."status") = 'attrited customer'
+	GROUP BY a."Income_Category"
+	ORDER BY total_customer;	
